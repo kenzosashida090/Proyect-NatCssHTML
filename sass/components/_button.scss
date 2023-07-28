@@ -1,0 +1,103 @@
+.btn{
+    &,
+    &:link,
+    &:visited{
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all .2s;
+        position: relative;
+        font-size: $default-font-size;
+
+        // CHANGE FOR THE <BUTTON> ELEMENT
+        border: none;
+        cursor: pointer;
+    }
+    &:hover
+    {
+        transform: translateY(-0.3rem);
+        box-shadow: 0rem 1rem 2rem rgba($color-black, 0.205);
+        &::after{
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        
+        }
+    }
+    &:active,
+    &:focus{
+        outline: none;
+        transform: translateY(-0.1rem);
+        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.205);
+    }
+    &--white{
+        background-color:$color-white;
+        color: $color-grey-dark;
+        &::after{
+            background-color: $color-white;
+        }
+        
+    }
+    &--green{
+        background-color:$color-primary;
+        color: $color-white;
+        &::after{
+            background-color: $color-primary;
+        }
+        
+    }
+    
+    
+    
+    &::after{
+        content: ""; /* ALWAYS SET THE CONTENT IF YOU DONT SET CONTENT WILL NOT BE EXCECUTED */
+        display: inline-block;
+        height: 100%; /* This means that will be set as the original heigh size previusly added*/
+        width: 100%; 
+        border-radius: 100px;
+        position: absolute; /*TO SET THIS TO ABSOLUTE WE NEED REFERENCE SO WE SET THE REFERENCE THAT THE POSITION IT IS RELATIVE WE SET IT ON THE BTN FIRST STATEMENT*/
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s; 
+                /* The transition it is set by the button animated aand the btn:after  */
+    }
+    
+    
+    &--animated{
+        animation: moveInUp .5s ease-out 0.75s; /* this last is the delay than it will start */
+        animation-fill-mode: backwards;
+        /* The backwards means that will use all the previouse btn:after and aply specially on the opacity to hide the botton before starts the animation 
+            if we dont set this the button when we refresh the page it will not be the animation intro and it will be visible at the beggining 
+            the text will be animated buut the button will not fade in so it will see awfull so to start it will fade and appear.
+        */
+    }
+    
+    }
+
+    .btn-text{
+
+        &:link,
+        &:visited{
+                font-size: $default-font-size;
+                color: $color-primary;
+                text-decoration: none;
+                display: inline-block;
+                border-bottom: .1rem solid $color-primary;
+                padding: .3rem;
+                transition: all .2s;
+        }
+        &:hover{
+                background-color: $color-primary-dark;
+                color:$color-white;
+                box-shadow: 0 2rem 2rem rgba($color-black, 0.205);
+                transform: translateY(-.3rem);
+            
+        }
+        &:active{
+            box-shadow: 0 1rem 1.5rem rgba($color-black, 0.205);
+            transform: translateY(-.1rem);
+        }
+      
+    }

@@ -1,0 +1,37 @@
+*,
+*::before,
+*::after   {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit; /* ALLOWS US TO MANIPULATE ALL THE CONTAIN OF A BOX IF YOU SET 100WITDH WILL AFFECT THE BORDER,PADDING,THIS IS AN EASY WAY TO STYULE A BOX*/
+}
+
+html{
+    //this defined what ram its equal to in this case 1 rem = 10px
+        font-size: 62.5%; // 1rem =  10px; 10px/16px=62.5%
+        
+        //first we put the largest tab-land except for big-desktop because it is at min, 
+       
+        //it is for the cascadian format will apply the latest that have the same weight if both are the same the last one will be apply 
+        @include respond(tab-land){
+            font-size: 56.25%; // 1rem = 8px, 9/16 = 56.25% --> now we change the font size to 8px so in paddings like 8rem instead of 80px will be 32px
+        }
+        
+        @include respond(tab-port){
+            font-size: 50%; // 1rem = 8px, 8/16 = 50% --> now we change the font size to 8px so in paddings like 8rem instead of 80px will be 32px
+        }
+        
+        @include respond(big-desktop){
+            font-size: 75%; // 1rem = 12, 12/16 = 75%
+        }
+
+    }
+body{ 
+    box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tab-port){
+        padding: 0;
+    }
+
+}
